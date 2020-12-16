@@ -1,3 +1,4 @@
+# Python3 code to Check for balanced parentheses in an expression 
 # EASY
 
 '''
@@ -31,43 +32,53 @@ Example 5:
 Input: "{[]}"
 Output: true
 
-Use a stack and recursion from outside in. 
-'''
-import collections
+Solution:
+# position 0 -> []
+# position 1 -> []
+# position 2 -> ()
 
+Use a stack to push all left paranthesis to open list. 
+If the item equals the value in both open and closed lists, pop it. 
+If we finish with an empty stack, paranthesis are balanced. 
+
+'''
 
 def isValid(input) -> bool:
 
-    # Python3 code to Check for  
-    # balanced parentheses in an expression 
+    # convert string into a list
+    input = list(input)
+
+    # code: 0, 1, 2
     open_list = ["[","{","("] 
     close_list = ["]","}",")"] 
 
-    input = list(input)
-
+    # No paranthesis means matching case
     if list is None:
         return True
 
-    stack = [] 
+    stack = []
+
+    # scroll through each char and add open paranthesis to the stack.
     for i in input: 
         if i in open_list: 
             stack.append(i) 
         elif i in close_list: 
-            pos = close_list.index(i) 
-            if (len(stack) > 0 and open_list[pos] == stack[len(stack)-1]): 
-                stack.pop() 
-            else: 
-                return "False"
+            # get the paranthesis code: 0, 1, 2
+            code = close_list.index(i)
 
+            if len(stack) > 0 and open_list[code] == stack[len(stack)-1]: 
+                stack.pop() 
+
+    # If all left paranthesis have been removed from stack we've found all the matches
     if len(stack) == 0: 
-        return "True"
+        return True
     else: 
-        return "False"
+        return False
 
 if __name__ == '__main__':
 
-    input = "([dfadfadfadsfafd])"
+    input = ["khkjhkjhj", "#@#$@#$@", "()", "((([[[{}]]])))", ")(", "((]]"]
 
-    result = isValid(input)
-
-    print("Matching paranthesis" if result else "Mismatch")
+    for i in input:
+        result = isValid(i)
+        print("All paranthesis are matching." if result else "Mismatch", i)
