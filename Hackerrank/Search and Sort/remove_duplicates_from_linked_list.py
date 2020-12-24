@@ -1,5 +1,6 @@
 '''
-A Node object has an integer data field, , and a Node instance pointer, , pointing to another node (i.e.: the next node in a list).
+A Node object has an integer data field, , and a Node instance pointer, , pointing to
+ another node (i.e.: the next node in a list).
 
 A removeDuplicates function is declared in your editor, which takes a pointer to the 
  node of a linked list as a parameter. Complete removeDuplicates so that it deletes 
@@ -10,19 +11,14 @@ reset your  pointer when performing deletions to avoid breaking the list.
 
 Input Format
 
-You do not need to read any input from stdin. The following input is handled 
-by the locked stub code and passed to the removeDuplicates function:
-The first line contains an integer, , the number of nodes to be inserted.
-The  subsequent lines each contain an integer describing the  value of a node
- being inserted at the list's tail.
 
 Constraints
 
 The data elements of the linked list argument will always be in non-decreasing order.
-Output Format
+
 
 Your removeDuplicates function should return the head of the updated linked list. 
-The locked stub code in your editor will print the returned list to stdout.
+
 
 Sample Input
 
@@ -38,7 +34,8 @@ Sample Output
 1 2 3 4 
 Explanation
 
-, and our non-decreasing list is . The values  and  both occur twice in the list, so we remove the two duplicate nodes. We then return our updated (ascending) list, which is .
+, and our non-decreasing list is . The values  and  both occur twice in the list
+, so we remove the two duplicate nodes. We then return our updated (ascending) list
 '''
 
 class Node:
@@ -72,40 +69,40 @@ class LL:
             print(current.data,end=' ')
             current = current.next
 
+    # compare current node with next node and remove if identical
     def removeDuplicates(self,head):
         if head is None:
             return None
 
         curr_node = head
-        prev_node = None
+        next_node = curr_node.next
         
-        while curr_node:
+        while next_node is not None:
 
-            if prev_node is None:
-                prev_node = curr_node
+            # if data matches, update the next pointer
+            if curr_node.data == curr_node.next.data:
+                curr_node.next = curr_node.next.next
 
+            else:
+                curr_node = curr_node.next
+            # next node here is just the pointer. how to get the actual node.
             next_node = curr_node.next
-
-            if curr_node.data == next_node.data:
-                print("We've hit a match")
-                prev_node.next = curr_node.next
-
-
-            curr_node = curr_node.next
 
         return head
 
 
-
-
 mylist = LL()
 
-datalist = [1, 2, 2, 4, 5]
+datalist = [1, 2, 2, 2, 4, 4, 5]
+
+datalist2 = [1, 1, 1, 1, 1, 1, 1]
+
+d3 = []
 
 head=None
 
-for i in range(len(datalist)):
-    data=datalist[i]
+for i in range(len(d3)):
+    data=d3[i]
     head=mylist.insert(head,data)    
 
 print("original list")

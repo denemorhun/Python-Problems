@@ -20,9 +20,6 @@ def fib():
 
 #create a new generator objects
 fib = fib()
-# print(next(fib))
-# print(next(fib))
-# print(next(fib))
 
 
 # # first valid input is 1
