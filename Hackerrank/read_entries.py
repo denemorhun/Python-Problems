@@ -15,7 +15,7 @@ def get_entries():
         # read t lines from STDIN
         for i in range(0, t):
             entries.append(input().strip())
-            print(entry[i])
+            print(entries[i])
         
         return entries
 
