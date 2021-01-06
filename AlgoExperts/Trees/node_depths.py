@@ -27,15 +27,15 @@ def nodeDepths(root):
 # we need a helper function to call recursively
 def get_node_depth(node, currDepth, depths):
     # base case
-	if node is None:
+    if node is None:
         return
 
     # if we are not at a leaf node, continue    
     if node.left:
 		#traverse left
-		newDepth = currDepth + 1
-		depths.append(newDepth)
-	    get_node_depth(node.left, newDepth, depths)
+        newDepth = currDepth + 1
+        depths.append(newDepth)
+        get_node_depth(node.left, newDepth, depths)
     if node.right:
 		#traverse right
 	    newDepth = currDepth + 1
