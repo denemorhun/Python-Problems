@@ -7,6 +7,9 @@ Calculate the sum of the branch until the leaf nodes in a tree
 # This is the class of the input root. Do not edit it.
 
 # This is the class of the input root. Do not edit it.
+
+
+# This is the class of the input binary tree.
 class BinaryTree:
     def __init__(self, value):
         self.value = value
@@ -15,43 +18,29 @@ class BinaryTree:
 
 
 def nodeDepths(root):
-    sum_of_depths = 0
+    depths = []
     # depth of the root node is 0
-    calc_node_depths(root, 0, sum_of_depths)
-    return sum_of_depths
+    get_node_depth(root, 0, depths)
+    return sum(depths)
 	
 
 # we need a helper function to call recursively
-def calc_node_depths(node, currDepth, s):
-    if node is None:
+def get_node_depth(node, currDepth, depths):
+    # base case
+	if node is None:
         return
 
-    newDepth = currDepth + 1
-
-
-    # base case: if all nodes have been processed we've found all nodes.
-    
-    if node.left and node.value:
-        1 + calc_node_depths(node.left, depth, s)
-
-    if node.right and node.value:
-        1 + calc_node_depths(node.right, depth, s)
-
-	# base case, if lead node, append runningSum
-    if node.left is None and node.right is None:
-	    sums.append(newRunningSum)
-	    return 
     # if we are not at a leaf node, continue    
     if node.left:
 		#traverse left
-	    calc(node.left, newRunningSum, sums)
+		newDepth = currDepth + 1
+		depths.append(newDepth)
+	    get_node_depth(node.left, newDepth, depths)
     if node.right:
 		#traverse right
-	    calc(node.right, newRunningSum, sums)
+	    newDepth = currDepth + 1
+	    depths.append(newDepth)
 		
-
-
-	
-	
-		
+	    print (currDepth, newDepth, depths)
+	    get_node_depth(node.right, newDepth, depths)
 
