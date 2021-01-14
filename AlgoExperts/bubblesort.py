@@ -12,12 +12,25 @@ def bubbleSort(array):
 	
     size = len(array) - 1
 
-    i = 0
+    for i in range(size):
+         # if array is already sorted, the swap count is 0
+        swaps = 0
+        for j in range(size-i):
+            if array[j] > array [j + 1]:
+                print(f"Swapping {array[j]}, {array[j+1]} ")
+                array[j], array[j+1] = array[j+1], array[j]
+                swaps += 1
+                print("Num of swaps:", swaps)
+                print(array)
 
-    # assume if array is already sorted
-    swaps = 0
+        # must iterate and check for swaps at each iteration.
+        # if swaps are reached 0, terminate early
+        if swaps == 0:
+            print("Reached 0 swaps, breaking")
+            break
 
-
+           
+    return array   
 
 if __name__ == '__main__':
         input = [0, 1, 21, 33, 45, 45, 61, 71, 72, 73]
