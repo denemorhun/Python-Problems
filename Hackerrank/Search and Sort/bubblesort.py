@@ -1,11 +1,11 @@
 #!/bin/python3
+# implementation of bubblesort using counting number of swaps
+# if number of swaps is zero, the array is sorted
 
-import sys
-
-def bubblesort(n, a):
-    if n == 0:
-        return 0
-    
+def bubblesort(a):
+    if len(a) == 0:
+        return None
+        
     size = len(a) - 1
     number_of_swaps = 0
     
@@ -30,13 +30,7 @@ def bubblesort(n, a):
     print(a)
                
 
-                
-            
-                
-# the size of the array
-n = int(input().strip())
-# array, split by " "
-a = list(map(int, input().strip().split(' ')))
-# Write Your Code Here
+a = [99, 73, 71, 61, 45, 45, 41, 33, 21, 1, 0]
 
-bubblesort(n, a)
+
+bubblesort(a)
