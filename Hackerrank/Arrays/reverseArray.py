@@ -7,5 +7,9 @@ def reverseArray(arr):
 
     # or, return arr.reverse()
 
-print(reverseArray([1, 2, 3, 4]))
+arr = [1, 2, 3, 4]
+arr = reverseArray(arr)
+
+print(arr)
+
 

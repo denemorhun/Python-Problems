@@ -10,28 +10,44 @@ s(1)
 
 def findmaxthreenums(arr):
 
-    size = len(arr)
+    # array to store the largest three values
+    threeLargest = [None, None, None]
 
-    if size < 3:
-        return arr
+    for num in arr:
+        updateLargest(threeLargest, num)
 
-    max_3_items = []
+    return threeLargest
+
+# check if number is none or larger than our current number
+def updateLargest(threeLargest, num):
+    #compare the current number to the third value, which is max
+    if  threeLargest[2] is None or num > threeLargest[2]:
+        shiftAndUpdate(threeLargest, num, 2 ) #TODO
+    elif threeLargest[1] is None or num > threeLargest[1]:
+        shiftAndUpdate(threeLargest, num, 1)
+    elif threeLargest[0] is None or num > threeLargest[0]:
+        shiftAndUpdate(threeLargest, num, 0)
+
+# idx is the greatest index in our max list to be updated to minimize shifts
+def shiftAndUpdate(threeLargest, num,  idx):
+    for i in range(idx + 1):
+        # if we are at the last idx assign number
+        if i == idx:
+            threeLargest[i] = num
+        # shift array 
+        else:
+            threeLargest[i] = threeLargest[i+1]
 
     
-    # traverse array, assume first entry in unsorted array is max
-    for i in range(1, size):
-        curr_max = arr[i-1]
-        
-        # find the second max value in the remainder array
-        if arr[i] > curr_max:
-            curr_max = arr[i]
+            
 
-            max_3_items.append(curr_max)
 
-    print("Final max", (curr_max)
 
-    # array has been sorted
-    return max_3_items   
+    
+
+
+
+	
 
 if __name__ == '__main__':
         input = [0, 1, 21, 33, 45, 45, 61, 71, 72, 73]
@@ -39,8 +55,7 @@ if __name__ == '__main__':
         input3 = [9]
         input4 = [6, 2, 5, 9, 8, 3]
 
-        result = findmaxthreenums(input2)
+        result = findmaxthreenums(input4)
 
         print(result)
-        
-        
+
