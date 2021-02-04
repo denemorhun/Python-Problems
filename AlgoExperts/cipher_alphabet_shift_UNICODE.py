@@ -16,10 +16,12 @@
 def caesarCipherEncryptor(string, k):
     encrypted = []
 
+    # if shift > alphabet size, reduce by length of alphabet
     if k >= 26:
         k = k % 26
 	
     for letter in string:
+        # shift each char
         x = ord(letter) + k
         # if we go past z = 122
         if x > 122:
@@ -30,5 +32,5 @@ def caesarCipherEncryptor(string, k):
     return "".join(encrypted)
 
 
-
+# encrypted the string by n letters in the alphabet
 print(caesarCipherEncryptor('xyz', 28))
