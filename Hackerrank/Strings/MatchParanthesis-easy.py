@@ -77,8 +77,8 @@ def isValid(input) -> bool:
 
 if __name__ == '__main__':
 
-    input = ["khkjhkjhj", "#@#$@#$@", "()", "((([[[{}]]])))", ")(", "((]]"]
+    input = ["khkjhkjhj", "#@#$@#$@", "()", "((([[[{}]]])))", ")(", "((]]", ""]
 
     for i in input:
         result = isValid(i)
-        print("All paranthesis are matching." if result else "Mismatch", i)
+        print("All paranthesis are matching.", i if result else "Mismatch", i)
