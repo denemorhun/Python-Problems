@@ -1,6 +1,9 @@
 """
 Queue Removals
 
+https://leetcode.com/discuss/interview-question/1039925/Facebook-Practice-question-or-Queue-Removals
+
+
 EASY
 
 DS: Q
@@ -37,19 +40,42 @@ from collections import deque
 
 def findPositions(arr, x):
     
-    stack = []
+    q = deque()
+
+    holder = deque()
 
     # pop x elements from q
+    if x > len(arr):
+        s = len(arr)
+    else:
+        s = x
+    for i in range(s):
+        holder.append(arr.pop(0))
 
-    # from the x elements, pop the max
+    print(holder)
 
-    # for remaining popped elements, reduce their values by 1 if > 0
+    # from the x elements, remove the max
+    holder.remove(max(holder))
 
+    print(holder)
+
+    # for remaining popped elements reduce their values by 1 if > 0
     # append values back to the queue
+
+    for item in holder:
+        if item > 0:
+            arr.append(item-1)
+
+    print('final', arr)
+
+
+
+    
 
 if __name__ == "__main__":
 
     # Must operate LIFO
-    string = '([{ (((  %% )))} ] )'
+    arr = [1, 2, 2, 3, 4, 5]
+    x = 5
 
-    print("Brackets are balanced" if balance_brackets(string) else "Mismatch")
+    findPositions(arr, x)
