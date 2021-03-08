@@ -42,3 +42,5 @@ Root.addChild('C')
 # print(Root.children[1])
 
 # Root.depthFirstSearch()
+
+print(Root)
