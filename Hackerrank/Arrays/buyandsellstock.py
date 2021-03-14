@@ -48,9 +48,6 @@ from collections import Counter
 
 def findMaxProfit(prices) -> int:
 
-    # Python3 code to Check for  
-    # balanced parentheses in an expression 
-
     if len(input) == 0: 
         return 0
 
