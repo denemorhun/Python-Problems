@@ -181,6 +181,35 @@ class BST:
         else:
             return 1 + self.sizeof(bst.left) + self.sizeof(bst.right)
 
+   
+
+    # ############################################################
+    # calculate the branch sums of a tree
+    # ############################################################
+    # def branchSums(self, root):
+    #     sums = []
+    #     self._calc_branch_sum(root, 0, sums)
+    #     return sums
+
+    # # helper function
+    # def _calc_branch_sums(self, node, runningSum, sums):
+    #     if node is None:
+    #         return
+    
+    #     newRunningSum = runningSum + node.value
+	    
+    #     # base case, if lead node, append runningSum
+    #     if node.left is None and node.right is None:
+	#         sums.append(newRunningSum)
+	#         return 
+    
+    #     # if we are not at a leaf node, continue    
+    #     if node.left:
+	# 	    #traverse left
+	#         calc_branch_sum(node.left, newRunningSum, sums)
+    #     if node.right:
+	# 	    #traverse right
+	#         calc_branch_sum(node.right, newRunningSum, sums)
 
 ############################################################
 # Driving code
@@ -225,7 +254,6 @@ def main():
     # bst.remove(n)
     # print("Check if 57 is in tree:", bst.contains(n))
     # print(bst.right.right.value)
-
 
 
 if __name__ == "__main__":

@@ -34,10 +34,10 @@ def calc_branch_sum(node, runningSum, sums):
     # if we are not at a leaf node, continue    
     if node.left:
 		#traverse left
-	    calc(node.left, newRunningSum, sums)
+	    calc_branch_sum(node.left, newRunningSum, sums)
     if node.right:
 		#traverse right
-	    calc(node.right, newRunningSum, sums)
+	    calc_branch_sum(node.right, newRunningSum, sums)
 		
 
 
