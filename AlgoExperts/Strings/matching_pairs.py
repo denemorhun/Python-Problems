@@ -1,9 +1,4 @@
-import math
-# Add any extra import statements you may need here
-
-
-# Add any helper functions you may need here
-
+''' Count number of matching pairs between two strings'''
 
 def matching_pairs(s, t):
 

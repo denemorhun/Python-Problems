@@ -1,14 +1,18 @@
-'''encode input wtring AAAAAABBC as 6A2B1C'''
+'''encode input wtring AAAAAABBC as 6A2B1C based on length
+
+run length encoding
+
+if any number exceeds 9, wrap around'''
 
 def runLengthEncoding(string):
 
 	print("input will be", string)
     # count needs to be at least for each char
-    count = 1
+	count = 1
 	new_array = []
 
 	# scroll through array for length
-    for i in range(len(string)-1):
+	for i in range(len(string)-1):
 		
 	# compare i with i+1, if equal, increment count during run
 		if string[i] is not string[i+1] or count == 9:
@@ -27,10 +31,13 @@ def runLengthEncoding(string):
 	#handle the last run
 	new_array.append(count)
 	new_array.append(string[len(string) - 1])
-			
-    return ''.join(map(str, new_array)) 
+	return ''.join(map(str, new_array)) 
 
 
 if __name__ == '__main__':
 
-   inputarray = "AAAAAABBCCCDDDDD"
+   inputarray = "AAAAAABBCCCDDDDDA"
+   print(runLengthEncoding(inputarray))
+
+   inputarray = "AAAAAAAAAAAAAAABBCCCDDDDDA"
+   print(runLengthEncoding(inputarray))
