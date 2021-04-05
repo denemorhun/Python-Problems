@@ -1,0 +1,6 @@
+
+# Run py.test -m set1.This will run the methods test_file1_method1, 
+test_file2_method1, test_file2_method2.
+
+# py.test test_sample1.py::test_file2_method2 only runs 1 methods
+
