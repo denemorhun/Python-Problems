@@ -1,44 +1,34 @@
 ''' Kadane's algorithm
 
-# calculate the max_subarray for each index.
+# calculate the max_subarray value for each index.
     # max_subarray would be either the value at index
     # or max_subarray up till that index + value
 
+maxEndingHere =  max(maxEndingHere + num, num)
+
+keep track of max so far:
+
+max_so_far = max(max_so_far, max_endinghere)
+
+*** Do not need to return the subarray, just the sum ***
 '''
-
-from typing import MutableSequence
-
 
 def kadanesAlgo(a):
 
     if a is None:
         return None
 
-    # if there is only element, or first, max sub is itself
-    ms = a[0]
-
-    output = []
-
-    output.append(ms)
-
-    output_array = []
-    
+    # if there is 1 element, max sum 
+    maxEndingHere = a[0]
+    maxSoFar = a[0]
 
     for i in range(1, len(a)):
         
-        
-        else:
-            i+=1
+        maxEndingHere = max(a[i], maxEndingHere + a[i])
 
-        output.append(ms)
-
-    print(output)
-
-    #return(output_array)
-
-    return output[-1]
-    
-
+        maxSoFar = max(maxSoFar, maxEndingHere)
+     
+    print(maxSoFar)
 
 # a1 = [-1, 0, 2, -7, 5, 3, 9]
 # a2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, -10]
