@@ -30,7 +30,7 @@ Solution:
 
 from unittest import TestCase
 
-def numberOfWays(arr, k):
+def two_sum_equals_k(arr, k):
     if not arr:
         return 0
     maps = {}
@@ -72,9 +72,9 @@ class TestPairSums(TestCase):
         self.k = 6
 
     def test_pair_sums(self) -> None:
-        self.assertEqual(2, numberOfWays(self.arr_1, self.k))
-        self.assertEqual(4, numberOfWays(self.arr_2, self.k))
-        self.assertEqual(1, numberOfWays(self.arr_3, self.k))
+        self.assertEqual(2, two_sum_equals_k(self.arr_1, self.k))
+        self.assertEqual(4, two_sum_equals_k(self.arr_2, self.k))
+        self.assertEqual(1, two_sum_equals_k(self.arr_3, self.k))
 
  # driver code
     if __name__ == '__main__':
@@ -82,6 +82,6 @@ class TestPairSums(TestCase):
 
         #l1 = ListNode
 
-        result = numberOfWays([1, 2, 3, 4, 3, 3, 3, 2], 6)
+        result = two_sum_equals_k([1, 2, 3, 4, 3, 3, 3, 2], 6)
 
         print('Number of pairs', result)
