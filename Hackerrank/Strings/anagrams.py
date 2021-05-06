@@ -20,7 +20,7 @@ def find_anagrams(words):
             # append the original word to the key
             reference[sorted_word].append(word)
         else:
-            #if no sorted match is found, return None
+            #if no sorted match is found, initially an array with the word
             reference[sorted_word] = [word]
 
     return list(reference.values())
