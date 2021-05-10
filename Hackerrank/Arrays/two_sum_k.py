@@ -20,14 +20,15 @@ def two_sum(a, k):
     if len(a) == 1 or len(a) == 0:
         return None
 
-    # add numbers when 
+    # initialize dictionary
     comp_nums = {}
 
     for i in range(len(a)):
-        # potential match = k - a[i]
+        # if potential match = k - a[i] is already in keys, add indices of value and comp value as tuple
         if k - a[i] in comp_nums.keys():
             output.append((comp_nums[k-a[i]], i))
         else:
+            # if potential match doesn't exist, initialize with current index
             comp_nums[a[i]] = i
 
     # # returning the number instead
